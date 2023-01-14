@@ -1,0 +1,10 @@
+###
+POST http://localhost:9000/api HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Olguita Prieto",
+    "document": "528261",
+    "email": "olguita3@correo.com",
+    "password": "528261"
+}
