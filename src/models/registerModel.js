@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 var uniqueValidator = require("mongoose-unique-validator");
 
 // object of data type, for create the schema in the database
-const userSchema = mongoose.Schema({
+let userSchema = mongoose.Schema({
     name:{
         type: String,
         required: [true, "The name is Required"],
