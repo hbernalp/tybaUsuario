@@ -1,15 +1,15 @@
 const express = require("express");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const loginModel = ("../../models/loginModel.js");
+const loginModel = require("../../models/registerModel.js");
 
-const routerLogin = express.Router();
+const routerLogin = express();
 
 // login the user registry in DB
-routerLogin.post('/login', (req, res) =>{
-    let userLogin = (req.body)
+routerLogin.post('/credencial', (req, res) =>{
+    let body = (req.body);
 
-    loginModel.findOne({ email: body.email }, (erro, usuarioDB)=>{
+    loginModel.findOne({ email: body.email }, (erro, usuarioDB) => {
         if (erro) {
           return res.status(500).json({
              ok: false,
@@ -22,7 +22,7 @@ routerLogin.post('/login', (req, res) =>{
          return res.status(400).json({
            ok: false,
            err: {
-               message: "The crfedencials is incorrects"
+               message: "The credencials is incorrects"
            }
         })
       }
@@ -49,7 +49,6 @@ routerLogin.post('/login', (req, res) =>{
        })
    })
 })
-
 
 
 module.exports = routerLogin;

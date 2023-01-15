@@ -1,7 +1,8 @@
 const express = require("express");
+var router = express.Router()
 const mongoose = require("mongoose");
 require("dotenv").config();
-// const userRout = require("./v1/routes/userRouts");
+const userRout = require("./v1/routes/userRouts");
 const loginRouts = require("./v1/routes/loginRouts");
 const registerRouts = require("./v1/routes/registerRouts");
 
@@ -10,9 +11,9 @@ const port = process.env.PORT || 9000;
 
 //middleware
 app.use(express.json());
-// app.use('/api', userRout);
+app.use('/api', userRout);
 app.use('/login', loginRouts);
-app.use('/register', registerRouts);
+//app.use('/register', registerRouts);
 
 // routes
 app.get("/", (req, res) => {
